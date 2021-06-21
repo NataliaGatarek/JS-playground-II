@@ -30,7 +30,7 @@ class Car {
       // a car cannot go to negative speed
       this.speed = 0;
       }
-          this.check_motion();
+    this.check_motion();
   }
 
   stopTheCar() {
@@ -95,11 +95,10 @@ const displayMyFavCar = (myFavCar) => {
 const displaySpeed = (myFavCar) => {
   const carSpeed = document.getElementById("car-speed");
   carSpeed.innerHTML = myFavCar.speed;
+  const displayIsRunning = document.getElementById("car-motion");
+  displayIsRunning.innerHTML=myFavCar.motion
 };
-const displayIsRunning = (myFavCar) => {
-    const carIsRunning = document.getElementById("car-motion");
-    carIsRunning.innerHTML=myFavCar.motion
-}
+
 const addEvents = (myFavCar) => {
   const accelerateButton = document.getElementById("accelerate");
   accelerateButton.addEventListener("click", () => accelerate(myFavCar));

@@ -15,7 +15,7 @@ class Tv {
         this.volume -= amount;
         (this.volume < 0) ? this.volume = 0 : this.volume = this.volume;
     }
-      set_channel(number) {
+    set_channel(number) {
         (number > 50 || number <=0) ? this.channel = this.channel : this.channel = number;
     }
     reset(){
@@ -31,6 +31,7 @@ window.onload = () => {
   const tv = new Tv("LG", "4", 40);
   displaytv(tv);
   addEvents(tv);
+  changeChannel(tv);
 };
 const displaytv = (tv) => {
   const tvBrand = document.getElementById("tv-brand");
@@ -44,14 +45,16 @@ const addEvents = (tv) => {
   const increaseButton = document.getElementById("increase-volume");
   increaseButton.addEventListener("click", () => increase(tv));
   const decreaseButton = document.getElementById("decrease-volume");
- decreaseButton .addEventListener("click", () => decrease(tv));
-  const channelButton = document.getElementById("change-channel");
-    channelButton.addEventListener("click", () => channel(tv));
-    const channelOne = document.getElementById("channel");
-    channelOne.addEventListener("click", () => change(tv));
-     const resetButton = document.getElementById("reset");
+  decreaseButton .addEventListener("click", () => decrease(tv));
+  const resetButton = document.getElementById("reset");
   resetButton.addEventListener("click", () => reset(tv));
 };
+const changeChannel = (tv) => {
+  const channelButton = document.getElementById("change-channel");
+   channelButton.addEventListener("click", () => {
+   channel(tv)
+  } );
+}
 const increase = (tv) => {
   tv.increase_volume(1);
   displaytv(tv);
@@ -61,7 +64,7 @@ const decrease = (tv) => {
   displaytv(tv);
 };
 const channel = (tv) => {
-    tv.set_channel(change);
+    tv.set_channel(tv);
     displaytv(tv)
 }
 const reset = (tv) => {
