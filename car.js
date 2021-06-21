@@ -122,8 +122,4 @@ const stop = (myFavCar) => {
   myFavCar.stopTheCar();
   displaySpeed(myFavCar);
 };
-const motion = (myFavCar) => {
-    myFavCar.motion();
-    displayIsRunning(myFavCar);
-}
 // Create a method inside the class definition that checks wether the Car is running or not and display it in the HTML
